@@ -1,6 +1,6 @@
-require_relative '../../beacon/beacon'
+require_relative '../../beacon/modules/beacon_core'
 
-describe 'commandline' do
+describe 'Extract data from server response' do
   let(:input) { File.open('spec/test_data/count.xml', &:gets) }
 
   let(:output_value){

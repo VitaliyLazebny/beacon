@@ -1,6 +1,6 @@
-require_relative '../../beacon/beacon'
+require_relative '../../beacon/modules/beacon_core'
 
-describe 'commandline' do
+describe 'Commandline parameters parsing' do
   before(:each) do
     ARGV.clear
   end

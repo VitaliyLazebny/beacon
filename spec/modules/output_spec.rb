@@ -1,7 +1,7 @@
 require_relative '../../spec/spec_helper'
-require_relative '../../beacon/beacon'
+require_relative '../../beacon/modules/beacon_core'
 
-describe 'output' do
+describe 'Result output' do
   it 'displaying error message and makes exit' do
     expect do
       output = capture_stdout { Beacon.error('Error') }

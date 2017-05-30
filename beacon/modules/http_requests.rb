@@ -14,11 +14,17 @@ module HTTPRequests
 
 
   def get_last_from_server
-    do_request("https://beacon.nist.gov/rest/record/last")
+    do_request("#{server_url}/rest/record/last")
   end
 
   def get_data_from_server(time)
-    do_request("https://beacon.nist.gov/rest/record/previous/#{time}")
+    do_request("#{server_url}/rest/record/previous/#{time}")
+  end
+
+  def server_url
+    return server if server && !server.empty?
+
+    'https://beacon.nist.gov'
   end
 
   def do_request(uri)
@@ -34,5 +40,9 @@ module HTTPRequests
     attempt += 1
     sleep attempt * 3
     retry
+  rescue SocketError
+    self.error("Please, check internet connection.")
+  rescue Errno::ECONNREFUSED
+    self.error("Server unavailable")
   end
 end

@@ -1,4 +1,4 @@
-describe 'Beacon' do
+describe 'messages on incorrect params' do
   it 'returns message if --from is bigger then --to' do
     result = `ruby beacon/beacon.rb --from "1 day ago" --to "2 days ago"`
     expect(result).to eq("Expected that --to is bigger than --from\n")

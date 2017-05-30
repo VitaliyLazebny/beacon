@@ -1,6 +1,6 @@
 require 'open-uri'
 
-RSpec.describe 'Run server' do
+RSpec.describe 'Console tool (using http-server)' do
   before :all do
     @web_server = Process.spawn(
         'spec/helpers/http_server.rb',
@@ -13,7 +13,7 @@ RSpec.describe 'Run server' do
   end
 
   it 'integration test' do
-    actual = `ruby beacon/beacon.rb`
+    actual = `ruby beacon/beacon.rb --server "http://localhost:8000"`
 
     expected = "0, 10\n" +
                "1, 6\n"  +

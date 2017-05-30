@@ -1,6 +1,6 @@
-require_relative '../../beacon/beacon'
+require_relative '../../beacon/modules/beacon_core'
 
-describe 'commandline' do
+describe 'Relative datetimes count' do
   it 'works with multiple months' do
     actual   = Beacon.decode_time('3 months ago').month
     expected = (DateTime.now << 3).month
