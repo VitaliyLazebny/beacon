@@ -1,2 +1,5 @@
 # RubyMine project files
 /.idea/
+
+# Temp files
+/tmp/
